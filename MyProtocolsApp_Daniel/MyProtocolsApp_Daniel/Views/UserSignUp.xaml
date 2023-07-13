@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyProtocolsApp_Daniel.Views.UserSignUp">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="SIGN UP"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry Placeholder="Email" />
+            <Entry Placeholder="Password" />
+            <Entry Placeholder="Name" />
+            <Entry Placeholder="Back-up Email" />
+            
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

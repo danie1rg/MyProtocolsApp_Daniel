@@ -13,6 +13,7 @@ namespace MyProtocolsApp_Daniel.Services
         //donde el prefijo sera la part de la URL que nunca cambiará y el sufijo será la parte variable
 
         public static string ProductionPrefixURL = "http://192.168.100.238:45455/api/";
+        
 
         public static string ApiKeyName = "Progra6ApiKey";
 

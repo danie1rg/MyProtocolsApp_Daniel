@@ -16,8 +16,8 @@
 
             <Switch x:Name="SwShowPassword" IsToggled="False" Toggled="SwShowPassword_Toggled" />
 
-            <Button x:Name="BtnLogin" Text="LOGIN" BackgroundColor="DarkGreen" CornerRadius="15"/>
-            <Button x:Name="BtnSignUp" Text="SIGN UP" BackgroundColor="#8C5B07" CornerRadius="15" />
+            <Button x:Name="BtnLogin" Text="LOGIN" BackgroundColor="DarkGreen" CornerRadius="15" Clicked="BtnLogin_Clicked"/>
+            <Button x:Name="BtnSignUp" Text="SIGN UP" BackgroundColor="#8C5B07" CornerRadius="15" Clicked="BtnSignUp_Clicked" />
             <Label x:Name="LblPasswordRecovery" Text="Password Recovery..." TextColor="#EBDFDF"/>
         </StackLayout>
     </ContentPage.Content>

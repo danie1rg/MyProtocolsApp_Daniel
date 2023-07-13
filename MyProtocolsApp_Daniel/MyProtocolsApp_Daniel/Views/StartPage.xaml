@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyProtocolsApp_Daniel.Views.StartPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <FlexLayout Direction="Column" Padding="20,40" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="0"
+                            x:Name="BtnProtocolManagement" Text="Protocol Management"
+                            BackgroundColor="Blue" TextColor="White"
+                            HeightRequest="60" WidthRequest="60"
+                            CornerRadius="25"
+                            />
+
+                    <Button Grid.Column="1" Grid.Row="0"
+                            x:Name="BtnUserManagement" Text="User Management"
+                            BackgroundColor="Green" TextColor="White"
+                            HeightRequest="60" WidthRequest="60"
+                            CornerRadius="25"
+                            />
+                    <Button Grid.Column="0" Grid.Row="1"
+                            x:Name="BtnCategoryManagement" Text="Category Management"
+                            BackgroundColor="Green" TextColor="White"
+                            HeightRequest="60" WidthRequest="60"
+                            CornerRadius="25"
+                            />
+                    <Button Grid.Column="1" Grid.Row="1"
+                            x:Name="BtnStepsManagement" Text="Steps Management"
+                            BackgroundColor="Blue" TextColor="White"
+                            HeightRequest="60" WidthRequest="60"
+                            CornerRadius="25"
+                            />
+
+
+                </Grid>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
