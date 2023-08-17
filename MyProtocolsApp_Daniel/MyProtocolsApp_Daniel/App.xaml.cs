@@ -13,7 +13,7 @@ namespace MyProtocolsApp_Daniel
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            //DependencyService.Register<MockDataStore>();
 
             //definimos la formar de apilar páginas en la pantalla
             MainPage = new NavigationPage(new AppLoginPage());

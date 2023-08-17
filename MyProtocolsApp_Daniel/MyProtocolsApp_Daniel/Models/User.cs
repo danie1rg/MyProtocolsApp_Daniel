@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -9,10 +10,19 @@ namespace MyProtocolsApp_Daniel.Models
 {
     public class User
     {
+
+        [JsonIgnore]
         public RestRequest Request { get; set; }
 
         // en este ejemplo usaré los mismos atributos que en el modelo del api posteriormente en otra clase usaré el DTO del usuario para simplificar el json que
         //se envía y recibe desde el API.
+
+
+        public User()
+        {
+            Active = true;
+            IsBlocked = false;
+        }
 
         public int UserId { get; set; }
         public string Email { get; set; } = null!;
@@ -25,9 +35,8 @@ namespace MyProtocolsApp_Daniel.Models
         public bool? IsBlocked { get; set; }
         public int UserRoleId { get; set; }
 
-        public virtual UserRole? UserRole { get; set; } = null!;
+        public virtual UserRole UserRole { get; set; } = null!;
 
-        public User() { }
 
         public async Task<bool> ValidateUserLogin() 
         {
@@ -71,6 +80,59 @@ namespace MyProtocolsApp_Daniel.Models
                 throw;
             }
         }
+
+
+
+        public async Task<bool> AddUserAsync()
+        {
+            try
+            {
+                string RouteSufix = string.Format("Users");
+                //armamos la ruta completa al endpoint en el API 
+                string URL = Services.APIConection.ProductionPrefixURL + RouteSufix;
+
+                RestClient client = new RestClient(URL);
+
+                Request = new RestRequest(URL, Method.Post);
+
+                //agregamos mecanismo de seguridad, en este caso API key
+                Request.AddHeader(Services.APIConection.ApiKeyName, Services.APIConection.ApiKeyValue);
+
+                Request.AddHeader(GlobalObjects.ContentType, GlobalObjects.MimeType);
+
+                //en el caso de una operación POST debemos serializar el objeto para pasarlo como 
+                //json al API
+
+                string SerializedModel = JsonConvert.SerializeObject(this);
+                //agregamos el objeto serializado el el cuuerpo del request. 
+                Request.AddBody(SerializedModel, GlobalObjects.MimeType);
+
+                //ejecutar la llamada al API 
+                RestResponse response = await client.ExecuteAsync(Request);
+
+                //saber si las cosas salieron bien 
+                HttpStatusCode statusCode = response.StatusCode;
+
+                if (statusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                throw;
+            }
+
+        }
+
+
+
 
     }
 }

@@ -15,6 +15,23 @@ namespace MyProtocolsApp_Daniel.Views
         public StartPage()
         {
             InitializeComponent();
+            LoadUserName();
+        }
+
+        private void LoadUserName() {
+            LblUserName.Text = GlobalObjects.MyLocalUser.Nombre;
+        }
+
+        private async void BtnUserManagement_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync( new UserManagementPage());
+        }
+
+        
+
+        private async void BtnProtocolMNG_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProtocolsListPage());
         }
     }
 }

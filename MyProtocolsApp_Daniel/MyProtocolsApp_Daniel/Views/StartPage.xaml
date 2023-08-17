@@ -4,7 +4,12 @@
              x:Class="MyProtocolsApp_Daniel.Views.StartPage">
     <ContentPage.Content>
         <ScrollView>
+            
+            
             <FlexLayout Direction="Column" Padding="20,40" >
+
+                <Label x:Name="LblUserName" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,0,30" />
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -20,7 +25,7 @@
                             x:Name="BtnProtocolManagement" Text="Protocol Management"
                             BackgroundColor="Blue" TextColor="White"
                             HeightRequest="60" WidthRequest="60"
-                            CornerRadius="25"
+                            CornerRadius="25" Clicked="BtnProtocolMNG_Clicked"
                             />
 
                     <Button Grid.Column="1" Grid.Row="0"
@@ -28,6 +33,7 @@
                             BackgroundColor="Green" TextColor="White"
                             HeightRequest="60" WidthRequest="60"
                             CornerRadius="25"
+                            Clicked="BtnUserManagement_Clicked"
                             />
                     <Button Grid.Column="0" Grid.Row="1"
                             x:Name="BtnCategoryManagement" Text="Category Management"
