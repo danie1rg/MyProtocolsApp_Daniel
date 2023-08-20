@@ -174,6 +174,29 @@ namespace MyProtocolsApp_Daniel.ViewModels
             finally { IsBusy = false; }
         }
 
+        public async Task<bool> UpdateUserPassword(UserDTO pUser)
+        {
+            if (IsBusy) return false;
+            IsBusy = true;
+
+            try
+            {
+                MiUserDTO = pUser;
+
+
+                bool R = await MiUserDTO.UpdateUserAsyncByPassword();
+
+                return R;
+
+            }
+            catch
+            (Exception)
+            {
+                return false;
+                throw;
+            }
+            finally { IsBusy = false; }
+        }
 
 
     }

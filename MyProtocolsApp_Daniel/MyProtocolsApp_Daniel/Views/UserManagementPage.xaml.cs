@@ -126,5 +126,10 @@ namespace MyProtocolsApp_Daniel.Views
         {
             await Navigation.PopAsync();
         }
+
+        private async void BtnChangePass_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChangePasswordPage());
+        }
     }
 }
